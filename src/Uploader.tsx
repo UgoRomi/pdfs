@@ -10,7 +10,7 @@ const MyComponent: React.FC = () => {
     for (const file of acceptedFiles) {
       const fileData = await file.arrayBuffer();
       const pdf = await PDFDocument.load(fileData);
-      const copiedPages = await pdf.copyPages(pdf, pdf.getPageIndices());
+      const copiedPages = await pdfDoc.copyPages(pdf, pdf.getPageIndices());
       copiedPages.forEach((page) => pdfDoc.addPage(page));
     }
     const pdfBytes = await pdfDoc.save();
